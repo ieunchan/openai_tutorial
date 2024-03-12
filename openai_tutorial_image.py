@@ -1,12 +1,10 @@
 from PIL import Image
-from dotenv import load_dotenv
-import os
+from decouple import config
 from openai import OpenAI
 import requests
 
 
-load_dotenv()
-openai_api_key=os.getenv("OPENAI_API_KEY")
+openai_api_key=config("OPENAI_API_KEY")
 MODEL="dall-e-3"
 
 client = OpenAI(api_key=openai_api_key)

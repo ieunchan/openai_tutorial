@@ -1,10 +1,7 @@
-from dotenv import load_dotenv
-import os
+from decouple import config
 from openai import OpenAI
 
-load_dotenv()
-
-openai_api_key=os.getenv("OPENAI_API_KEY")
+openai_api_key=config("OPENAI_API_KEY")
 MODEL="gpt-3.5-turbo"
 client = OpenAI(api_key=openai_api_key)
 response = client.chat.completions.create(
